@@ -3,6 +3,7 @@ import React, { use } from 'react';
 
 import registerLottie from '../../assets/lotties/register.json'
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
+import SocialLogin from '../Shared/SocialLogin';
 
 const Register = () => {
 
@@ -47,6 +48,7 @@ const Register = () => {
               </fieldset>
 
               </form>
+              <SocialLogin></SocialLogin>
             </div>
           </div>
         </div>
