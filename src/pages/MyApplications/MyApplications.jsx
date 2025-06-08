@@ -2,19 +2,20 @@ import React, { Suspense } from 'react';
 import ApplicationStats from './ApplicationStats';
 import ApplicationList from './ApplicationList';
 import useAuth from '../../hooks/useAuth';
-import { myApplicationsPromise } from '../../api/applicstionsApi';
+import UseApplicationApi from '../../api/UseApplicationApi';
 
 const MyApplications = () => {
 
     const { user } = useAuth();
-    console.log('Token in the context',user.accessToken)
+    const {myApplicationsPromise} = UseApplicationApi();
+    // console.log('Token in the context',user.accessToken)
 
     return (
         <div>
             <ApplicationStats></ApplicationStats>
             <Suspense fallback={'loading your applications'}>
                 <ApplicationList
-                    myApplicationsPromise={myApplicationsPromise(user.email, user.accessToken)}
+                    myApplicationsPromise={myApplicationsPromise(user.email)}
                 ></ApplicationList>
             </Suspense>
         </div>
